@@ -6,7 +6,6 @@ const API_KEY = "7c71e9734e3f6b9753d6d5536489316b";
 
 const MovieCarousel = ({ title, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
-  const [watchLater, setWatchLater] = useState([]);
   const [trailers, setTrailers] = useState({});
   const navigate = useNavigate();
 
