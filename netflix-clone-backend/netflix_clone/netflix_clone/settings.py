@@ -153,17 +153,19 @@ SIMPLE_JWT = {
 
 # CORS settings - more specific for production
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = False  # Important for security
+CORS_ALLOW_ALL_ORIGINS = False
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://netflix-clone-frontend.onrender.com",  # Your frontend
+    "https://netflix-clone-frontend-qy85.onrender.com",  # NEW frontend URL
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://netflix-clone-fullstack.onrender.com",  # Your backend
-    "https://netflix-clone-frontend.onrender.com",   # Your frontend
+    "https://netflix-clone-fullstack.onrender.com",        # Backend
+    "https://netflix-clone-frontend-qy85.onrender.com",    # NEW frontend URL
 ]
+
 # Security settings for production
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
