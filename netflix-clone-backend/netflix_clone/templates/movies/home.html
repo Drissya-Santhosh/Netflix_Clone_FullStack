@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>🔥 Trending This Week</h2>
+<div class="grid">
+  {% for item in trending %}
+    <div class="card">
+      <a href="{% url 'movies:detail' item.media_type item.id %}">
+        {% if item.poster_path %}
+          <img src="https://image.tmdb.org/t/p/w300{{ item.poster_path }}" alt="{{ item.display_title }}">
+        {% else %}
+          <img src="https://via.placeholder.com/300x450?text=No+Image" alt="No image available">
+        {% endif %}
+        <h4>{{ item.display_title }}</h4>
+      </a>
+    </div>
+  {% empty %}
+    <p>No trending items found.</p>
+  {% endfor %}
+</div>
+
+<h2>🎥 Popular Movies</h2>
+<div class="grid">
+  {% for item in popular %}
+    <div class="card">
+      <a href="{% url 'movies:detail' 'movie' item.id %}">
+        {% if item.poster_path %}
+          <img src="https://image.tmdb.org/t/p/w300{{ item.poster_path }}" alt="{{ item.display_title }}">
+        {% else %}
+          <img src="https://via.placeholder.com/300x450?text=No+Image" alt="No image available">
+        {% endif %}
+        <h4>{{ item.display_title }}</h4>
+      </a>
+    </div>
+  {% empty %}
+    <p>No popular movies found.</p>
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+
+
+
+<!--{-->
+<!--    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2MjAwMzA0MywiaWF0IjoxNzYxOTE2NjQzLCJqdGkiOiIzY2UwODY5NDc2ZGE0ZjczOTAyNmYxOGNkN2JiNTFhOCIsInVzZXJfaWQiOiIxIn0.fkMgfxR8VQH2-Cd89wUVfk_RseLp3wzrgP3sj8f66v4",-->
+<!--    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYxOTIwMjQzLCJpYXQiOjE3NjE5MTY2NDMsImp0aSI6ImVlMzM4YjFiZGVjZTQxMGU4YTc0ZDZiZGRmYWE0MWM3IiwidXNlcl9pZCI6IjEifQ.LVehoDSjKE39A9bR8xdVMbfT6jJpkx2JXHo85DcU-2w"-->
+<!--}-->

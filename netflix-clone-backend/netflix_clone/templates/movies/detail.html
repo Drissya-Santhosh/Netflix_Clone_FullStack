@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ data.title|default:data.name }}</h1>
+<img src="https://image.tmdb.org/t/p/w500{{ data.poster_path }}" alt="">
+<p>{{ data.overview }}</p>
+
+{% if trailer %}
+  <h3>Trailer</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ trailer.key }}" frameborder="0" allowfullscreen></iframe>
+{% endif %}
+
+{% if user.is_authenticated %}
+  {% if in_watchlist %}
+    <form action="{% url 'movies:remove_watchlist' obj.tmdb_id %}" method="post">{% csrf_token %}
+      <button type="submit">Remove from Watchlist</button>
+    </form>
+  {% else %}
+    <form action="{% url 'movies:add_watchlist' obj.tmdb_id %}" method="post">{% csrf_token %}
+      <button type="submit">Add to Watchlist</button>
+    </form>
+  {% endif %}
+{% else %}
+  <p><a href="{% url 'login' %}?next={{ request.path }}">Log in</a> to add to your watchlist</p>
+{% endif %}
+{% endblock %}
