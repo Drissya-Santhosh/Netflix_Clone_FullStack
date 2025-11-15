@@ -1,4 +1,3 @@
-// App.js - Add the new routes
 import React from "react";
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home";
@@ -21,11 +20,12 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* Public Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profiles" element={<ProfileSelector />} />
         <Route path="/profiles/manage" element={<ProfileManagement />} />
-        
+
         {/* Protected Routes */}
         <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
         <Route path="/watchlist" element={<PrivateRoute><Watchlist /></PrivateRoute>} />
@@ -35,14 +35,10 @@ function App() {
         <Route path="/movies" element={<PrivateRoute><Movies /></PrivateRoute>} />
         <Route path="/new-popular" element={<PrivateRoute><NewPopular /></PrivateRoute>} />
         <Route path="/my-list" element={<PrivateRoute><MyList /></PrivateRoute>} />
-        
-        {/* Movie routes */}
+
+        {/* Movie Routes */}
         <Route path="/movie/:id" element={<PrivateRoute><MovieDetail /></PrivateRoute>} />
         <Route path="/movie/:id/play" element={<PrivateRoute><MoviePlayer /></PrivateRoute>} />
-        // In App.js, add these routes:
-        <Route path="/tv-shows" element={<PrivateRoute><TVShows /></PrivateRoute>} />
-        <Route path="/movies" element={<PrivateRoute><Movies /></PrivateRoute>} />
-        <Route path="/new-popular" element={<PrivateRoute><NewPopular /></PrivateRoute>} />
       </Routes>
     </Router>
   );
