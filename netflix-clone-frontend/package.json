@@ -2,7 +2,7 @@
   "name": "netflix-clone-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://netflix-clone-frontend.onrender.com",
   "dependencies": {
     "@headlessui/react": "^2.2.9",
     "@testing-library/dom": "^10.4.1",
